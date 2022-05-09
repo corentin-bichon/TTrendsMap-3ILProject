@@ -1,13 +1,5 @@
-from countriesById import *
 from generateMap import *
-from readTopTweet import *
-from mapCoordinate import *
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
+from generateJsonTweets import *
 
 # Interface IHM
 if __name__ == '__main__':
@@ -23,5 +15,5 @@ if __name__ == '__main__':
             break
 
     print(list_country)
-
+    getJsonTweet()
     addMapCountry(list_country)

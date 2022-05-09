@@ -1,6 +1,6 @@
 from countriesById import *
 
-resultat_tweet = open('../data/resultat.json', 'r', encoding="utf-8").read()
+resultat_tweet = open('../output/resultat.json', 'r', encoding="utf-8").read()
 
 #Renvoi une liste des 10 top tweets du pays passé en paramètre
 def getTopTweet(country_name):

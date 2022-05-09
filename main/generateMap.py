@@ -7,7 +7,7 @@ from mapCoordinate import *
 # Crée une Map dans indexcountry.html à partir d'un nom de pays
 def createMap():
     folium.LayerControl().add_to(map)
-    map.save('indexcountry.html')
+    map.save('../output/index-country.html')
 
 
 # Ajoute la pays en surligné sur la carte et les tops tweets de se pays
@@ -25,4 +25,4 @@ def addMapCountry(list_country):
 
     folium.LayerControl().add_to(map)
 
-    map.save('indexcountry.html')
+    map.save('../output/index-country.html')
