@@ -17,7 +17,7 @@ def addMapCountry(list_country):
     for country_name in list_country:
         folium.Marker(
             location=getCityCoordinate(country_name),
-            popup=getTopTweet(country_name),
+            popup=getHtmlTopTweet(country_name),
             icon=folium.Icon(color='blue', icon='ok-sign'),
         ).add_to(map)
 

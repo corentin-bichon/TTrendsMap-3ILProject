@@ -15,5 +15,5 @@ if __name__ == '__main__':
             break
 
     print(list_country)
-    getJsonTweet()
+    #getJsonTweet()
     addMapCountry(list_country)
