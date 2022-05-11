@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_61cfc5614f20cd367cf154cdb2613d44 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_61cfc5614f20cd367cf154cdb2613d44" ></div>
+        
+</body>
+<script>    
+    
+            var map_61cfc5614f20cd367cf154cdb2613d44 = L.map(
+                "map_61cfc5614f20cd367cf154cdb2613d44",
+                {
+                    center: [51.1657, 10.4515],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 3,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_31d36379a69260252c7ae06459122985 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 7, "maxZoom": 7, "minZoom": 1, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_61cfc5614f20cd367cf154cdb2613d44);
+        
+    
+            var marker_e5455b8ecbcce8d0ac5b547fcc3cf558 = L.marker(
+                [46.0, 2.0],
+                {}
+            ).addTo(map_61cfc5614f20cd367cf154cdb2613d44);
+        
+    
+            var icon_2d7099b14ca74fc0b611f7f818371140 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ok-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_e5455b8ecbcce8d0ac5b547fcc3cf558.setIcon(icon_2d7099b14ca74fc0b611f7f818371140);
+        
+    
+        var popup_e3d4e33f487b073c1bb2101a9a879cf6 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c3a38f8fc3224fd948c1e36819dec1fe = $(`<div id="html_c3a38f8fc3224fd948c1e36819dec1fe" style="width: 100.0%; height: 100.0%;">['Top tweet France', '#MAPR', '#MariesAu1erRegard', '#TPMP', '#MariesAuPremierRegard', 'Eddy', 'Kendrick', 'Jokic', 'Jennifer', 'Haaland', 'Lemoine']</div>`)[0];
+            popup_e3d4e33f487b073c1bb2101a9a879cf6.setContent(html_c3a38f8fc3224fd948c1e36819dec1fe);
+        
+
+        marker_e5455b8ecbcce8d0ac5b547fcc3cf558.bindPopup(popup_e3d4e33f487b073c1bb2101a9a879cf6)
+        ;
+
+        
+    
+    
+
+        function geo_json_1650d0b9fec104145dc511822cf19166_onEachFeature(feature, layer) {
+            layer.on({
+            });
+        };
+        var geo_json_1650d0b9fec104145dc511822cf19166 = L.geoJson(null, {
+                onEachFeature: geo_json_1650d0b9fec104145dc511822cf19166_onEachFeature,
+            
+        });
+
+        function geo_json_1650d0b9fec104145dc511822cf19166_add (data) {
+            geo_json_1650d0b9fec104145dc511822cf19166
+                .addData(data)
+                .addTo(map_61cfc5614f20cd367cf154cdb2613d44);
+        }
+            geo_json_1650d0b9fec104145dc511822cf19166_add({"geometry": {"coordinates": [[[[-52.556425, 2.504705], [-52.939657, 2.124858], [-53.418465, 2.053389], [-53.554839, 2.334897], [-53.778521, 2.376703], [-54.088063, 2.105557], [-54.524754, 2.311849], [-54.27123, 2.738748], [-54.184284, 3.194172], [-54.011504, 3.62257], [-54.399542, 4.212611], [-54.478633, 4.896756], [-53.958045, 5.756548], [-53.618453, 5.646529], [-52.882141, 5.409851], [-51.823343, 4.565768], [-51.657797, 4.156232], [-52.249338, 3.241094], [-52.556425, 2.504705]]], [[[9.560016, 42.152492], [9.229752, 41.380007], [8.775723, 41.583612], [8.544213, 42.256517], [8.746009, 42.628122], [9.390001, 43.009985], [9.560016, 42.152492]]], [[[3.588184, 50.378992], [4.286023, 49.907497], [4.799222, 49.985373], [5.674052, 49.529484], [5.897759, 49.442667], [6.18632, 49.463803], [6.65823, 49.201958], [8.099279, 49.017784], [7.593676, 48.333019], [7.466759, 47.620582], [7.192202, 47.449766], [6.736571, 47.541801], [6.768714, 47.287708], [6.037389, 46.725779], [6.022609, 46.27299], [6.5001, 46.429673], [6.843593, 45.991147], [6.802355, 45.70858], [7.096652, 45.333099], [6.749955, 45.028518], [7.007562, 44.254767], [7.549596, 44.127901], [7.435185, 43.693845], [6.529245, 43.128892], [4.556963, 43.399651], [3.100411, 43.075201], [2.985999, 42.473015], [1.826793, 42.343385], [0.701591, 42.795734], [0.338047, 42.579546], [-1.502771, 43.034014], [-1.901351, 43.422802], [-1.384225, 44.02261], [-1.193798, 46.014918], [-2.225724, 47.064363], [-2.963276, 47.570327], [-4.491555, 47.954954], [-4.59235, 48.68416], [-3.295814, 48.901692], [-1.616511, 48.644421], [-1.933494, 49.776342], [-0.989469, 49.347376], [1.338761, 50.127173], [1.639001, 50.946606], [2.513573, 51.148506], [2.658422, 50.796848], [3.123252, 50.780363], [3.588184, 50.378992]]]], "type": "MultiPolygon"}, "id": "FRA", "properties": {"name": "France"}, "type": "Feature"});
+
+        
+    
+            var layer_control_0532fa788fc172f7a7cd538add5ee70d = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_31d36379a69260252c7ae06459122985,
+                },
+                overlays :  {
+                    "France" : geo_json_1650d0b9fec104145dc511822cf19166,
+                },
+            };
+            L.control.layers(
+                layer_control_0532fa788fc172f7a7cd538add5ee70d.base_layers,
+                layer_control_0532fa788fc172f7a7cd538add5ee70d.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topright"}
+            ).addTo(map_61cfc5614f20cd367cf154cdb2613d44);
+        
+</script>
