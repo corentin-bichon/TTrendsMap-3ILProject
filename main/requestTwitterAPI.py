@@ -16,7 +16,7 @@ def my_func(arg1="'",arg2='"',file_name='../output/resultat.json'):
     with open(file_name, 'w') as file:
      file.write(filedata)
 
-def loop_processing(file_name,data):
+def loop_processing_global(file_name,data):
     List_countries=[]
     fileObject = open(file_name, "r")
     jsonContent = fileObject.read()
@@ -26,6 +26,22 @@ def loop_processing(file_name,data):
     for id in range(nbr_countries):
         id_countries = tweet_data[id][data]
         List_countries.append(id_countries)
+    return List_countries
+
+def loop_processing_countries(list_country,file_countries,data):
+    List_countries=[]
+    fileObject = open(file_countries, "r")
+    jsonContent = fileObject.read()
+    tweet_data = json.loads(jsonContent)
+    nbr_countries=int(len(tweet_data))
+    fileObject.close()
+
+    for name_country in list_country:
+        for id in range(nbr_countries):
+            country=tweet_data[id]["country"]
+            if name_country == country:
+                id_countries = tweet_data[id][data]
+                List_countries.append(id_countries)
     return List_countries
 
 def exec_API(id_countries):
