@@ -1,55 +1,125 @@
 <html>
 <head>
-  <title> TTrendsMap </title>
-  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
-  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-  <script src="jquery-2.1.1.min.js"></script>
+    <title> TTrendsMap </title>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="jquery-2.1.1.min.js"></script>
 
-  <style>
-    #map{ width: 100%; height: 100%; }
-  </style>
+    <style>
+        #map {
+            width: 100%;
+            height: 80%;
+            border: solid ;
+        }
+
+        #formulaire {
+            height: 50px;
+            text-align:center;
+        }
+        body {
+            background: #ddd;
+        }
+        h2 {
+            margin-top: 25px;
+            margin-bottom: 0px;
+        }
+    </style>
 </head>
 <body>
+<h2 style="text-align:center ; height:50px"> TTrendsMap</h2>
 
-  <div id="map"></div>
+<div id="formulaire">
+    <select name="pays" id="pays">
+        <option selected value="">-- Select country --</option>
+        <option value="France">France</option>
+        <option value="Italy"> Italy</option>
+        <option value="Germany">Germany</option>
+        <option value="Germany">Germany</option>
+    </select>
+</div>
 
-  <script>
+<div id="map"></div>
 
-  // initialize the map
-  var map = L.map('map').setView([42.35, -71.08], 5);
+<script>
 
-  // load a tile layer
-  L.tileLayer('http://tiles.mapc.org/basemap/{z}/{x}/{y}.png',
-    {
-      attribution: 'Generate on TTrendsMap, by 3IL-Students',
-      maxZoom: 7,
-      minZoom: 1
-    }).addTo(map);
+    var country = ""
 
-  // load GeoJSON from an external file
-  $.getJSON("world-countries.geojson",function(data){
-    // add GeoJSON layer to the map once the file is loaded
-    L.geoJson(data).addTo(map);
-  });
+    // Récupère la liste déroulante des pays
+    const listePays = document.getElementById("pays");
 
-  $.getJSON("world-countries.geojson", function (hoodData) {
-        L.geoJson(hoodData).addTo(map);
-    });
+    // On crée la map
+    var map = L.map('map').setView([48, 2], 4);
 
-    $.getJSON("world-countries-position.geojson", function (data) {
-        var ratIcon = L.icon({
-            iconUrl: 'twitter-logo.png',
-            iconSize: [60, 50]
-        });
-        L.geoJson(data, {
-            pointToLayer: function (feature, latlng) {
-                var marker = L.marker(latlng, {icon: ratIcon});
-                marker.bindPopup("<h2 style='text-align:center; min-width:105px; margin-bottom:2px; color:#3388FF'> Trends </h2>" + "<h4 style='text-align:center; margin-top:0px'>" + feature.properties.Location + "</h4> <br/>");
-                return marker;
-            }
+    // On ajoute un titre à la map
+    L.tileLayer('',
+        {
+            attribution: 'Generate on TTrendsMap, by 3IL-Students',
+            maxZoom: 7,
+            minZoom: 1
         }).addTo(map);
+
+    // On initialise la map avec les bordures
+    $.getJSON("world-countries.geojson", function (data) {
+        // add GeoJSON layer to the map once the file is loaded
+        L.geoJson(data).addTo(map);
     });
 
-  </script>
+
+    // Requete API
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+
+    xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+            console.log(this.responseText);
+        }
+    });
+
+    xhr.open("GET", "https://api.twitter.com/1.1/trends/place.json?id=2459115");
+    xhr.setRequestHeader("Authorization", "Bearer AAAAAAAAAAAAAAAAAAAAAKXHbgEAAAAAlQdTL3vxyIoG9bbF7h4Lv%2BIb93s%3DBryRpZOqWngmZWbn9CAFhdsf6DL45ybUzccBRPLisP3a8SwhK0");
+    // WARNING: Cookies will be stripped away by the browser before sending the request.
+    xhr.setRequestHeader("Cookie", "guest_id=v1%3A165177601086488368");
+
+    xhr.send();
+
+    listePays.addEventListener("change", function () {
+        country = listePays.value;
+
+        // On recrée la map
+        map.off();
+        map.remove();
+        map = L.map('map').setView([48, 2], 4);
+
+        // On initialise la map
+        $.getJSON("world-countries.geojson", function (data) {
+            // add GeoJSON layer to the map once the file is loaded
+            L.geoJson(data).addTo(map);
+        });
+
+        // On ajoute le marker twitter
+        $.getJSON("world-city.geojson", function (data) {
+            var twitterIcon = L.icon({
+                iconUrl: 'twitter-logo.png',
+                iconSize: [30, 20]
+            });
+
+            L.geoJson(data, {
+                pointToLayer: function (Feature) {
+                    console.log(Feature.properties.country)
+                    console.log(country)
+                    if (Feature.properties.country === country) {
+                        console.log('FRANCEEEEEEEEEEEEEE')
+                        var marker = L.marker([Feature.geometry.coordinates[1], Feature.geometry.coordinates[0]], {icon: twitterIcon});
+                        marker.bindPopup("<h2 style='text-align:center; min-width:105px; margin-bottom:2px; color:#3388FF'> Trends </h2>" + "<h4 style='text-align:center; margin-top:0px'>" + Feature.properties.country + "</h4> <br/>");
+                    } else {
+                        var marker = L.marker([-100, 200], {icon: twitterIcon});
+                    }
+                    return marker;
+                }
+            }).addTo(map);
+        });
+    });
+
+</script>
 </body>
 </html>
