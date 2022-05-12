@@ -8,7 +8,7 @@ with open('../data/world-city.json') as handle:
     city_geo = json.loads(handle.read())
 
 
-# Renvoi les coordonnées précis du Pays (toute le périmètre)
+# Renvoi les coordonnées précis du Pays (tout le périmètre)
 def getSingleCountry(name_country_tweet):
     country_coordinate = 'null'
     for i in country_geo['features']:

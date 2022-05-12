@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>TTrendsMap</title>
+
+    <!-- Code CSS de l'application -->
+    <style>
+        .flex-container {
+            display: flex;
+        }
+
+        .menu {
+            order: 0;
+            flex: 1 1 auto;
+            align-self: auto;
+        }
+
+        .map {
+            order: 0;
+            flex: 3 1 auto;
+            align-self: auto;
+            width: 100%;
+            }
+    </style>
+
+</head>
+<body>
+    <div class="flex-container">
+        <div class="menu">
+            <h1> MENU API TWITTER</h1>
+
+            <form action="script.php" method="post">
+                <input type="submit" name="executer" value="ON" class="button" id="ON">
+                <br/>
+                <input type="submit" name="executer" value="OFF" class="button" id="OFF">
+            </form>
+
+            <form method="get" action="script.php">
+                <input type="submit" value="ON" name="on">
+                <input type="submit" value="OFF" name="off">
+                <input type="submit" value="REBOOT" name="reboot">
+            </form>
+
+            <?php
+                {
+                exec("sudo python creationMap.py");
+                }
+             ?>
+
+        </div>
+
+        <div class="map">
+            <!-- On importe la map  -->
+            <iframe src="../output/index-country.html"
+                width="100%" height="500">
+                 <p> Votre navigateur ne supportent pas les <i>iframes</i>. </p>
+            </iframe>
+        </div>
+    </div>
+</body>
+</html>
