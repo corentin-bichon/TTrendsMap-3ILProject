@@ -20,6 +20,9 @@ def addMapCountry(list_country):
             popup=getHtmlTopTweet(country_name),
             icon=folium.Icon(color='blue', icon='twitter', prefix='fa'),
         ).add_to(map)
+        print(country_name)
+        print(getCityCoordinate(country_name))
+        print(getSingleCountry(country_name))
 
         folium.GeoJson(getSingleCountry(country_name), name=str(country_name)).add_to(map)
 

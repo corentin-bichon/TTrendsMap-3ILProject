@@ -32,19 +32,20 @@ if __name__ == '__main__':
     print(' ----- Country Selection ----- ')
 
     if option_selected == '1':
-        # getJsonTweetGlobal()
+        #getJsonTweetGlobal()
         print(getAllCountry())
         addMapCountry(getAllCountry())
 
     elif option_selected == '2':
         country = input('Enter your country: ')
         list_country.append(country)
-        getJsonTweetByCountry(list_country)
+        print(list_country)
+        #getJsonTweetByCountry(list_country)
         addMapSingleCountry(country)
 
     elif option_selected == '3':
         list_country = enter_country()
-        getJsonTweetByCountry(list_country)
+        #getJsonTweetByCountry(list_country)
         time.sleep(5)
         addMapCountry(list_country)
 
